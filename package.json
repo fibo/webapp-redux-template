@@ -1,0 +1,42 @@
+{
+  "name": "webapp-redux-template",
+  "version": "0.0.0",
+  "private": true,
+  "description": "is an example of Webapp component implemented with React and Redux",
+  "author": {
+    "name": "Gianluca Casati",
+    "url": "http://g14n.info"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_PATH=src tape -r babel-register test/*/*.js",
+    "check-deps": "npm outdated",
+    "lint": "standard",
+    "postversion": "git push origin v${npm_package_version}; npm publish; git push origin master",
+    "postupdate-deps": "npm test && git commit -am 'updated deps' || git checkout -- package.json",
+    "start": "node src/development/server.js",
+    "update-deps": "npm update --save --dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fibo/webapp-redux-template.git"
+  },
+  "keywords": [
+    "component",
+    "redux",
+    "react"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fibo/webapp-redux-template/issues"
+  },
+  "homepage": "https://github.com/fibo/webapp-redux-template#readme",
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "cheerio": "^0.20.0",
+    "pre-commit": "^1.1.3",
+    "standard": "^7.1.0",
+    "tape": "^4.5.1",
+    "zeroconf-redux": "^0.1.0"
+  }
+}
