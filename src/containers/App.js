@@ -1,17 +1,26 @@
+import Root from '../components/Root'
 import { connect } from 'react-redux'
-import Foo from '../components/Foo'
+import {
+  addTask,
+  addPipe
+} from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-  }
+  return state
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
+    onAddTask: () => {
+      dispatch(addTask())
+    },
+    onAddPipe: () => {
+      dispatch(addPipe())
+    }
   }
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Foo)
+)(Root)
