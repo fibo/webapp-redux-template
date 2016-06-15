@@ -1,8 +1,9 @@
-export const ADD_TASK = 'ADD_TASK'
+export const ADD_TODO = 'ADD_TODO'
 
-export function addTask (id) {
-  return {
-    type: ADD_TASK,
-    id
-  }
-}
+let nextId = 0
+
+export const addTodo = (text) => ({
+  type: ADD_TODO,
+  id: nextId++,
+  text
+})
