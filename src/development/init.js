@@ -1,9 +1,12 @@
+import fetch from 'isomorphic-fetch'
 import init from '../index'
 
-const elementId = 'dev-init'
+// Add root element to mount the app.
 
 let element = document.createElement('div')
-element.id = elementId
+element.id = 'dev-init'
 document.body.appendChild(element)
 
-init(elementId)
+fetch('/api')
+  .then((response) => response.json())
+  .then((api) => init(element, api))

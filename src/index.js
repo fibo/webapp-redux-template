@@ -8,10 +8,10 @@ import App from './containers/App'
 
 const store = configureStore()
 
-function init (element) {
+function init (element, api) {
   render(
     <Provider store={store}>
-      <App />
+      <App api={api}/>
     </Provider>,
     element
   )
