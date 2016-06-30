@@ -1,8 +1,5 @@
 import Root from '../components/Root'
 import { connect } from 'react-redux'
-import {
-  addTodo
-} from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
   return state
@@ -10,12 +7,6 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onAddTask: () => {
-      dispatch(addTask())
-    },
-    onAddPipe: () => {
-      dispatch(addPipe())
-    }
   }
 }
 

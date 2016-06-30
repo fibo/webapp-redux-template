@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react'
 
 const Root = ({
-  todos
+  todo
 }) => (
   <div>
     <h1>todos</h1>
     <ul>
     {
-      todos.map(
+      todo.list.map(
         (todo) => (
           <li>todo.content</li>
         )
