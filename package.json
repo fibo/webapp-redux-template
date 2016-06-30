@@ -14,7 +14,7 @@
     "lint": "standard",
     "postversion": "git push origin v${npm_package_version}; npm publish; git push origin master",
     "postupdate-deps": "npm test && git commit -am 'updated deps' || git checkout -- package.json",
-    "start": "node src/development/server.js",
+    "start": "node dev/server.js",
     "update-deps": "npm update --save --dev"
   },
   "repository": {
@@ -33,8 +33,11 @@
   "homepage": "https://github.com/fibo/webapp-redux-template#readme",
   "devDependencies": {
     "babel-cli": "^6.9.0",
+    "babel-plugin-react-transform": "^2.0.2",
     "cheerio": "^0.20.0",
+    "livereactload": "^2.2.4",
     "pre-commit": "^1.1.3",
+    "react-proxy": "^1.1.8",
     "standard": "^7.1.0",
     "tape": "^4.5.1",
     "zeroconf-redux": "^0.1.0"

@@ -1,15 +1,28 @@
-import React, { PropTypes  } from 'react'
+import React, { PropTypes } from 'react'
 
 const Root = ({
-  title
+  todos
 }) => (
-  <span>{title}</span>
+  <div>
+    <h1>todos</h1>
+    <ul>
+    {
+      todos.map(
+        (todo) => (
+          <li>todo.content</li>
+        )
+      )
+    }
+    </ul>
+  </div>
 )
 
 Root.propTypes = {
-  title: PropTypes.string
+  todos: PropTypes.array.isRequired
 }
 
-Root.defaultProps = { title: 'foo' }
+Root.defaultProps = {
+  todos: []
+}
 
 export default Root

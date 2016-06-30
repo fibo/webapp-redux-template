@@ -1,8 +1,7 @@
 import Root from '../components/Root'
 import { connect } from 'react-redux'
 import {
-  addTask,
-  addPipe
+  addTodo
 } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {

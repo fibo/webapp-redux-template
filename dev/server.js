@@ -2,8 +2,9 @@ var budo = require('budo')
 var babelify = require('babelify')
 var api = require('./middleware/api')
 var port = require('./port')
+var path = require('path')
 
-budo('./src/development/init.js', {
+budo(path.join(__dirname, 'init.js'), {
   live: true,
   stream: process.stdout,
   port,
