@@ -1,6 +1,6 @@
 const headersJSON = (token) => ({
   'Accept': 'application/json',
-  'Authorization': `Bearer: ${token}`,
+  'Authorization': `BEARER ${token}`,
   'Content-Type': 'application/json'
 })
 
