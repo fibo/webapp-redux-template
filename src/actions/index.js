@@ -47,8 +47,9 @@ function fetchTodos (api) {
     })
 
     const baseURL = api.baseURL
+    const headers = headersJSON(api.token)
 
-    return fetch(`${baseURL}/todo/list`)
+    return fetch(`${baseURL}/todo/list`, { headers })
       .then((response) => response.json())
       .catch((error) => {
         dispatch({
@@ -72,5 +73,9 @@ function shouldFetchTodos ({ todo }) {
   return (todo.list.length === 0) && (todo.when_fetched === null)
 }
 
-function receiveTodos () {
+function receiveTodos (todos) {
+  return {
+    type: FETCH_TODOS_SUCCESS,
+    todos
+  }
 }

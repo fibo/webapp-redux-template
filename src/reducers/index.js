@@ -20,7 +20,15 @@ export default function (state = initialState, action) {
       return state
 
     case FETCH_TODOS_SUCCESS:
-      return state
+      return Object.assign({},
+        state,
+        {
+          todo: {
+            list: action.todos,
+            when_fetched: (new Date()).toString()
+          }
+        }
+      )
 
     default:
       return state
