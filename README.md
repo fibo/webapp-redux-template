@@ -4,8 +4,8 @@
 
 [![Dependency Status](https://david-dm.org/fibo/webapp-redux-template.svg)](https://david-dm.org/fibo/webapp-redux-template)
 
-* [Installation](#installation)
-* [Development](#development)
+[Installation](#installation) |
+[Development](#development)
 
 ## Installation
 
