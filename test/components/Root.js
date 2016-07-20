@@ -1,29 +1,26 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import reactDom from 'react-dom/server'
+import test from 'tape'
+import dom from 'cheerio'
 
-const Root = ({
-  title,
-  todo
-}) => (
-  <div>
-    <h1>{title}</h1>
-    <ul>
-      {todo.list.map(
-         (todo) => (
-           <li>
-             todo.content
-           </li>
-         )
-       )}
-    </ul>
-  </div>
-)
+import Root from 'components/Root'
 
-Root.propTypes = {
-  todos: PropTypes.array.isRequired
-}
+const render = reactDom.renderToStaticMarkup
 
-Root.defaultProps = {
-  todos: []
-}
+test('Root', (t) => {
+  const props = {
+    title: 'Offer wall',
+    todo: {
+      list: []
+    }
+  }
 
-export default Root
+  const el = <Root {...props} />
+
+  const $ = dom.load(render(el))
+  const $h1 = $('h1')
+
+  t.equal($h1.html(), props.title, 'title')
+
+  t.end()
+})

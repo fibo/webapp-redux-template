@@ -17,6 +17,11 @@
     "start": "node dev/server.js",
     "update-deps": "npm update --save --dev"
   },
+  "pre-commit": [
+    "test",
+    "lint",
+    "check-deps"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fibo/webapp-redux-template.git"

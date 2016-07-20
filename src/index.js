@@ -11,7 +11,7 @@ const store = configureStore()
 function init (element, api) {
   render(
     <Provider store={store}>
-      <App api={api}/>
+      <App api={api} />
     </Provider>,
     element
   )

@@ -1,8 +1,11 @@
 import React, { PropTypes } from 'react'
 
-const Root = ({todo}) => (
+const Root = ({
+  title,
+  todo
+}) => (
   <div>
-    <h1>todos</h1>
+    <h1>{title}</h1>
     <ul>
       {todo.list.map(
          (todo) => (
