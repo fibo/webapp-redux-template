@@ -1,8 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import init from '../src/index'
 
-// Add root element to mount the app.
-
 let element = document.createElement('div')
 element.id = 'dev-init'
 document.body.appendChild(element)

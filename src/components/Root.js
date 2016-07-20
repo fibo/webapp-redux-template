@@ -1,18 +1,16 @@
 import React, { PropTypes } from 'react'
 
-const Root = ({
-  todo
-}) => (
+const Root = ({todo}) => (
   <div>
     <h1>todos</h1>
     <ul>
-    {
-      todo.list.map(
-        (todo) => (
-          <li>todo.content</li>
-        )
-      )
-    }
+      {todo.list.map(
+         (todo) => (
+           <li>
+             todo.content
+           </li>
+         )
+       )}
     </ul>
   </div>
 )
