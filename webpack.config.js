@@ -8,7 +8,7 @@ module.exports = {
     './dev/init.js'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'dev'),
     filename: 'bundle.js'
   },
   plugins: [
