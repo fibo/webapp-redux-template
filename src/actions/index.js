@@ -70,7 +70,7 @@ export function fetchTodosIfNeeded (api) {
 }
 
 function shouldFetchTodos ({ todo }) {
-  return (todo.list.length === 0) && (todo.when_fetched === null)
+  return (todo.when_fetched === null)
 }
 
 function receiveTodos (todos) {

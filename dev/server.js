@@ -1,32 +1,39 @@
-var express = require('express')
-var webpack = require('webpack')
-var webpackDevMiddleware = require('webpack-dev-middleware')
-var webpackHotMiddleware = require('webpack-hot-middleware')
-var path = require('path')
+const express = require('express')
+const path = require('path')
+const webpack = require('webpack')
+const webpackDevMiddleware = require('webpack-dev-middleware')
+const webpackHotMiddleware = require('webpack-hot-middleware')
 
-var port = require('./port')
+const port = require('./port')
 
-var config = require('../webpack.config')
-var compiler = webpack(config)
+const config = require('../webpack.config')
+const compiler = webpack(config)
 
-var app = express()
+const app = express()
 
-var api = require('./middleware/api')
+const api = require('./middleware/api')
 app.use(api)
 
-app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
-app.use(webpackHotMiddleware(compiler))
-app.use(require('webpack-dev-middleware')(compiler, {
+app.use(webpackDevMiddleware(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath
 }))
-app.use(require('webpack-hot-middleware')(compiler))
 
-app.get('/', function (req, res) {
+app.use(webpackHotMiddleware(compiler))
+
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/index.html'))
 })
 
-app.listen(port, function (error) {
+app.get('/todo/list', (req, res) => {
+  res.json([
+    {
+      content: 'Remove GET /todo/list route in dev/server.js'
+    }
+  ])
+})
+
+app.listen(port, (error) => {
   if (error) {
     console.error(error)
   } else {

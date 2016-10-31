@@ -1,11 +1,9 @@
 import fetch from 'isomorphic-fetch'
 import init from '../src/index'
 
-let element = document.createElement('div')
-element.id = 'dev-init'
-document.body.appendChild(element)
+const element = document.getElementById('webapp-container')
 
-const err = (err) => console.error(err)
+const err = (msg) => console.error(msg)
 
 fetch('/api', { credentials: 'include' })
   .then((response) => response.json())

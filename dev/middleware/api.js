@@ -1,11 +1,11 @@
-var jsonwebtoken = require('jsonwebtoken')
-var url = require('url')
-var port = require('../port')
+const jsonwebtoken = require('jsonwebtoken')
+const url = require('url')
+const port = require('../port')
 
-var email = 'jsmith@example.org'
-var jwtSecret = process.env.JWT_SECRET
-var token = jsonwebtoken.sign({ email }, jwtSecret)
-var baseURL = `http://localhost:${port}`
+const email = 'jsmith@example.org'
+const jwtSecret = process.env.JWT_SECRET
+const token = jsonwebtoken.sign({ email }, jwtSecret)
+const baseURL = `http://localhost:${port}`
 
 function api (req, res, next) {
   if (url.parse(req.url).pathname === '/api') {
