@@ -40,6 +40,16 @@ export const FETCH_TODOS_FAILURE = 'FETCH_TODOS_FAILURE'
 
 export const FETCH_TODOS_REQUEST = 'FETCH_TODOS_REQUEST'
 
+function checkStatus (response) {
+  if (response.ok) {
+    return response
+  } else {
+    var error = new Error(response.statusText)
+    error.response = response
+    throw error
+  }
+}
+
 function fetchTodos (api) {
   return (dispatch) => {
     dispatch({
@@ -50,14 +60,15 @@ function fetchTodos (api) {
     const headers = headersJSON(api.token)
 
     return fetch(`${baseURL}/todo/list`, { headers })
+      .then(checkStatus)
       .then((response) => response.json())
+      .then((json) => dispatch(receiveTodos(json)))
       .catch((error) => {
         dispatch({
           type: FETCH_TODOS_FAILURE,
           error
         })
       })
-      .then((json) => dispatch(receiveTodos(json)))
   }
 }
 
