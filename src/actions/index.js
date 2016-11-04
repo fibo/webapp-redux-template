@@ -8,7 +8,7 @@ import {
 
 function fetchTodos (api) {
   return (dispatch) => {
-    const { receiveResponse, responseFailure } = prepareRequest(dispatch, 'FETCH_TODOS')
+    const { receiveData, responseFailure } = prepareRequest(dispatch, 'FETCH_TODOS')
 
     const baseURL = api.baseURL
     const headers = headersJSON(api.token)
@@ -17,7 +17,7 @@ function fetchTodos (api) {
     return fetch(endpoint, { headers })
       .then(checkStatus)
       .then(parseJSON)
-      .then(receiveResponse)
+      .then(receiveData)
       .catch(responseFailure)
   }
 }

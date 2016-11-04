@@ -18,7 +18,7 @@ export default function (state = initialState, action) {
         state,
         {
           todos: {
-            list: action.response,
+            list: action.data,
             when_fetched: (new Date()).toString()
           }
         }
