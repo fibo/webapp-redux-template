@@ -11,7 +11,7 @@ class Root extends Component {
 
   render () {
     const {
-      todo,
+      todos,
       title
     } = this.props
 
@@ -20,7 +20,7 @@ class Root extends Component {
         <h1>{title}</h1>
         <h2>ToDo</h2>
         <ul>
-          {todo.list.map(
+          {todos.list.map(
             (item, i) => (
               <li key={i}>
                 {item.content}
@@ -36,13 +36,19 @@ class Root extends Component {
 Root.propTypes = {
   fetchTodosIfNeeded: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
-  todos: PropTypes.array.isRequired
+  todos: PropTypes.shape({
+    list: PropTypes.array,
+    when_fetched: PropTypes.string
+  }).isRequired
 }
 
 Root.defaultProps = {
   fetchTodosIfNeeded: Function.prototype,
   title: 'Webapp Redux template',
-  todos: []
+  todos: {
+    list: [],
+    when_fetched: null
+  }
 }
 
 export default Root

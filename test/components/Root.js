@@ -9,8 +9,8 @@ const render = reactDom.renderToStaticMarkup
 
 test('Root', (t) => {
   const props = {
-    title: 'Offer wall',
-    todo: {
+    title: 'My webapp',
+    todos: {
       list: []
     }
   }
