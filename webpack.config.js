@@ -2,7 +2,7 @@ const webpack = require('webpack')
 const path = require('path')
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'cheap-source-map',
   entry: [
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
     './dev/init.js'

@@ -13,7 +13,7 @@
     "check-deps": "npm outdated",
     "lint": "standard",
     "postversion": "git push origin v${npm_package_version}; git push origin master",
-    "start": "node dev/server.js"
+    "start": "NODE_ENV=development node dev/server.js"
   },
   "pre-commit": [
     "test",
